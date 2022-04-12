@@ -9,6 +9,44 @@
     <script src="javascript.js" defer></script>
 </head>
 <body>
-    
+    <header>
+        <h1>My library</h1>
+    </header>
+    <div class="new-book-container">
+        <form action="#">
+            <div class="form-control">
+                <label for="book-title">Book</label>
+                <input type="text" id="book-title" name="book-title">
+            </div>
+            <div class="form-control">
+                <label for="book-author">Author</label>
+                <input type="text" id="book-author" name="book-author">
+            </div>
+            <div class="form-control">
+                <label for="book-title">Status</label>
+                <select name="read" id="book-title">
+                    <option value="true">Read</option>
+                    <option value="false">Not read</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <button type="button" class="btn-newbook">SUBMIT</button>
+            </div>
+        </form>
+    </div>
+    <div class="table-container">
+        <table>
+            <caption>My books</caption>
+            <colgroup>
+            
+            </colgroup>
+            <tr>
+                <td class="td-title">The Lord of the Rings</td>
+                <td class="td-author">J.R.R. Tolkien</td>
+                <td class="td-status">Read</td>
+                <td class="td-delete">Delete</td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
