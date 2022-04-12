@@ -3,10 +3,17 @@
 :root {
     --font-family-body: 'Raleway', sans-serif;
     --background-color: #041c32;
-    --table-background-color: #04293A;
+    --table-background-color: #0e243d;
     --accent-color: #064663;
-    --links-color: #ECB365;
+    --links-color: #552b3f;
     --text-color: aliceblue;
+    --button-background-color: #064663;
+    --button-background-color-hover: #0c5475;
+    --input-button-height: 40px;
+    --row-height: 64px;
+    --button-font-size: 0.75rem;
+    --delete-button-background-color: #552b3f;
+    --delete-button-background-color-hover: #612d46;
 }
 
 * {
@@ -23,10 +30,155 @@ html, body {
     color: var(--text-color);
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 16px;
+}
+
 header > h1 {
     font-weight: 200;
     font-size: 3rem;
 }
 
+/* :.:.:.:.:.::.:.:.:.:.::.:.:.:.:.::.:.:.:.:.::.:.:.:.:.::.:.:.:.:.:.: */
+/* "`-._,-'"`-._,-'"`-._,-'"` DESKTOP LAYOUT -'"`-._,-'"`-._,-'"`-._,-' */
+/* .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.- */
+
+@media only screen and (min-width: 640px) {
+
+    html {
+        display: flex;
+        justify-content: center;
+    }
+
+    body {
+        width: clamp(600px, 70%, 1000px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .new-book-container {
+        width: 100%;
+    }
+
+    #form-1 {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .form-control {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 4px;
+        flex: 3;
+    }
+
+    .form-control > input,
+    .form-control > select,
+    #btn-newbook {
+        color: var(--text-color);
+        height: var(--input-button-height);
+        border-radius: 4px;
+        border: 1px solid var(--button-background-color);
+        background-color: var(--background-color);
+    }
+
+    .form-control > input {
+        width: 100%;
+    }
+
+    .form-control > label {
+        font-size: 0.9rem;
+        font-weight: 400;
+    }
+
+    .form-control > select {
+        width: 100%;
+    }
+
+    .form-control > select:focus-visible {
+        border: 1px solid var(--button-background-color);
+        outline: none;
+    }
+
+    #btn-newbook {
+        width: 100%;
+        border: none;
+        background-color: var(--button-background-color);
+        font-size: var(--button-font-size);
+        letter-spacing: 0.1rem;
+    }
+
+    #btn-newbook:hover {
+        background-color: var(--button-background-color-hover);
+    }
+
+    #btn-control,
+    #select-control {
+        flex: 1;
+    }
+
+    .table-container {
+        width: 100%;
+    }
+
+    #book-table {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--table-background-color);
+    }
+
+    td {
+        flex: 1;
+        display: flex;
+        
+    }
+
+    tr {
+        display: flex;
+        height: var(--row-height);
+        align-items: center;
+        padding-right: 16px;
+        padding-left: 16px;
+        gap: 16px;
+    }
+
+    td:nth-child(3),
+    td:nth-child(4) {
+        justify-content: flex-end;
+    }
+
+    td > button {
+        height: var(--input-button-height);
+        width: 120px;
+        border-radius: 4px;
+        border: 1px solid var(--accent-color);
+        background-color: var(--background-color);
+        letter-spacing: 0.1rem;
+        font-size: var(--button-font-size);
+        color: var(--text-color);
+    }
+
+    .btn-delete {
+        background-color: var(--delete-button-background-color);
+        border: none;
+    }
+
+    .btn-delete:hover {
+        background-color: var(--delete-button-background-color-hover);
+
+    }
+
+    tr:nth-child(even) {
+        background-color: var(--table-background-color);
+    }
+}
 
 

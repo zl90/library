@@ -25,17 +25,22 @@ function addBookToLibrary() {
     let e = document.querySelector("#book-read");
     let readValue = e.options[e.selectedIndex].value;
 
-    const newBook = new Book(
-        titleValue,
-        authorValue,
-        readValue
-    );
+    if (titleValue != '' && authorValue != '') {
+        const newBook = new Book(
+            titleValue,
+            authorValue,
+            readValue
+        );
+    
+        myLibrary.push(newBook);
+    
+        form1.reset();
+    
+        updateTable();
+    } else {
+        alert('Please enter a Book Title and an Author Name');
+    }
 
-    myLibrary.push(newBook);
-
-    form1.reset();
-
-    updateTable();
 }
 
 function deleteBookFromLibrary(e) {
@@ -72,18 +77,19 @@ function updateTable() {
         let newStatusButton = document.createElement('button');
         (myLibrary[i].read == 'true') ? newStatusButton.textContent = 'READ' : newStatusButton.textContent = 'NOT READ';
         newStatusButton.addEventListener('click', toggleStatus);
+        newStatusButton.classList.add('btn-status');
         newStatusData.appendChild(newStatusButton);
         newRow.appendChild(newStatusData);
         let newDeleteData = document.createElement('td');
         let newDeleteButton = document.createElement('button');
         newDeleteButton.textContent = 'DELETE';
+        newDeleteButton.classList.add('btn-delete');
         newDeleteButton.addEventListener('click', deleteBookFromLibrary);
         newDeleteData.appendChild(newDeleteButton);
         newRow.appendChild(newDeleteData);
 
         bookTable.appendChild(newRow);
     }
-
 }
 
 function clearTable() {
