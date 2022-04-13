@@ -89,6 +89,16 @@ thead {
     margin-top: 16px;
 }
 
+.form-control > input,
+.form-control > select,
+#btn-newbook {
+    color: var(--text-color);
+    height: var(--input-button-height);
+    border-radius: 4px;
+    border: 1px solid var(--button-background-color);
+    background-color: var(--background-color);
+}
+
 
 /* :.:.:.:.:.::.:.:.:.:.::.:.:.:.:.::.:.:.:.:.::.:.:.:.:.::.:.:.:.:.:.: */
 /* "`-._,-'"`-._,-'"`-._,-'"` DESKTOP LAYOUT -'"`-._,-'"`-._,-'"`-._,-' */
@@ -130,15 +140,7 @@ thead {
         flex: 3;
     }
 
-    .form-control > input,
-    .form-control > select,
-    #btn-newbook {
-        color: var(--text-color);
-        height: var(--input-button-height);
-        border-radius: 4px;
-        border: 1px solid var(--button-background-color);
-        background-color: var(--background-color);
-    }
+    
 
     .form-control > input {
         width: 100%;
@@ -267,6 +269,134 @@ thead {
         background-color: var(--background-color-hover);
     }
 
+}
+
+/* "`-._,-'"`-._,-'"`-._,-'"`'---------------'"`-._,-'"`-._,-'"`-._,-' */
+/* "`-._,-'"`-._,-'"`-._,-'"`'-MOBILE LAYOUT-'"`-._,-'"`-._,-'"`-._,-' */
+/* "`-._,-'"`-._,-'"`-._,-'"`'---------------'"`-._,-'"`-._,-'"`-._,-' */
+
+@media only screen and (max-width: 640px) {
+
+    #book-table {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 32px;
+
+        margin-bottom: 48px;
+    }
+
+    .new-book-container {
+        width: clamp(250px, 80%, 500px);
+    }
+
+    #form-1 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .form-control {
+        width: 100%;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .form-control > label {
+        width: 70px;
+    }
+
+    .form-control > input {
+        flex: 7;
+    }
+
+    .form-control > select {
+        flex: 7;
+        text-align: center;
+    }
+
+    .table-container {
+        display: flex;
+        justify-content: center;
+        width: clamp(250px, 80%, 500px);
+        margin-bottom: 48px;
+    }
+
+    .table-header-row {
+        display: none;
+    }
+
+    tr {
+        width: 100%;
+        background-color: var(--background-color-hover);
+        padding-bottom: 16px;
+        border-radius: 6px;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.199);
+    }
+
+    td {
+        display: inline-block;
+        width: 100%;
+        height: var(--row-height);
+        line-height: var(--row-height);
+        text-align: center;
+        vertical-align: baseline;
+        font-size: 1rem;
+    }
+
+    td > button {
+        height: var(--input-button-height);
+        width: 75%;
+        border-radius: 4px;
+        border: 1px solid var(--accent-color);
+        background-color: var(--background-color);
+        letter-spacing: 0.1rem;
+        font-size: var(--button-font-size);
+        color: var(--text-color);
+    }
+
+    .read-true {
+        background-color: var(--button-background-color);
+    }
+    
+    .read-true:hover {
+        background-color: var(--button-background-color-hover);
+    }
+    .read-false {
+        background-color: var(--background-color);
+    }
+
+    .read-false:hover {
+        background-color: var(--background-color-hover);
+    }
+
+    .btn-delete {
+        background-color: var(--delete-button-background-color);
+        border: none;
+    }
+
+    .btn-delete:hover {
+        background-color: var(--delete-button-background-color-hover);
+    }
+
+    #btn-control {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #btn-newbook {
+        width: 100%;
+        border: none;
+        background-color: var(--button-background-color);
+        font-size: var(--button-font-size);
+        letter-spacing: 0.1rem;
+    }
+
+    #btn-newbook:hover {
+        background-color: var(--button-background-color-hover);
+    }
 }
 
 

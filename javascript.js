@@ -32,7 +32,7 @@ function addBookToLibrary() {
             readValue
         );
     
-        myLibrary.push(newBook);
+        myLibrary.unshift(newBook);
     
         form1.reset();
     
