@@ -46,17 +46,17 @@ function addBookToLibrary() {
 function deleteBookFromLibrary(e) {
     // Delete from library array
     let index = e.target.parentNode.parentNode.rowIndex;
-    myLibrary.splice(index, 1);
+    myLibrary.splice(index-1, 1);
 
     updateTable();
 }
 
 function toggleStatus(e) {
     let index = e.target.parentNode.parentNode.rowIndex;
-    if (myLibrary[index].read == 'true') {
-        myLibrary[index].read = 'false';
+    if (myLibrary[index-1].read == 'true') {
+        myLibrary[index-1].read = 'false';
     } else {
-        myLibrary[index].read = 'true';
+        myLibrary[index-1].read = 'true';
     }
 
     updateTable();
@@ -67,19 +67,30 @@ function updateTable() {
 
     for (let i = 0; i < myLibrary.length; i++) {
         let newRow = document.createElement('tr');
+        newRow.classList.add('book-row');
+
         let newTitle = document.createElement('td');
         newTitle.textContent = myLibrary[i].title;
         newRow.appendChild(newTitle);
+
         let newAuthor = document.createElement('td');
         newAuthor.textContent = myLibrary[i].author;
         newRow.appendChild(newAuthor);
+
         let newStatusData = document.createElement('td');
         let newStatusButton = document.createElement('button');
-        (myLibrary[i].read == 'true') ? newStatusButton.textContent = 'READ' : newStatusButton.textContent = 'NOT READ';
-        newStatusButton.addEventListener('click', toggleStatus);
+        if (myLibrary[i].read == 'true') {
+            newStatusButton.textContent = 'READ';
+            newStatusButton.classList.add('read-true')
+        } else {
+            newStatusButton.textContent = 'NOT READ';
+            newStatusButton.classList.add('read-false')
+        }
         newStatusButton.classList.add('btn-status');
+        newStatusButton.addEventListener('click', toggleStatus);
         newStatusData.appendChild(newStatusButton);
         newRow.appendChild(newStatusData);
+
         let newDeleteData = document.createElement('td');
         let newDeleteButton = document.createElement('button');
         newDeleteButton.textContent = 'DELETE';
@@ -93,7 +104,7 @@ function updateTable() {
 }
 
 function clearTable() {
-    let tableChildren = bookTable.querySelectorAll('tr');
+    let tableChildren = bookTable.querySelectorAll('.book-row');
     for (let i = 0; i < tableChildren.length; i++) {
         bookTable.removeChild(tableChildren[i]);
     }

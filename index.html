@@ -11,16 +11,18 @@
 <body>
     <header>
         <h1>My library</h1>
+        <p>Keep track of your books.</p>
+        <p>View the <a href="https://github.com/zl90/library" target="blank">github repo</a>.</p>
     </header>
     <div class="new-book-container">
         <form id="form-1" action="#">
             <div class="form-control">
                 <label for="book-title">Book</label>
-                <input type="text" id="book-title" name="book-title" required>
+                <input type="text" id="book-title" maxlength="50" name="book-title" required>
             </div>
             <div class="form-control">
                 <label for="book-author">Author</label>
-                <input type="text" id="book-author" name="book-author" required>
+                <input type="text" id="book-author" maxlength="50" name="book-author" required>
             </div>
             <div class="form-control" id="select-control">
                 <label for="book-read">Status</label>
@@ -36,7 +38,15 @@
     </div>
     <div class="table-container">
         <table id="book-table">
-            <caption>My books</caption>
+            
+            <thead>
+                <tr class="table-header-row">
+                    <th>Book</th>
+                    <th>Author</th>
+                    <th>Status</th>
+                    <th> </th>
+                </tr>
+            </thead>
         </table>
     </div>
 </body>

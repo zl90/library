@@ -3,10 +3,12 @@
 :root {
     --font-family-body: 'Raleway', sans-serif;
     --background-color: #041c32;
+    --input-focus-color: #0e6d99;
     --table-background-color: #0e243d;
     --accent-color: #064663;
-    --links-color: #552b3f;
-    --text-color: aliceblue;
+    --links-color: #28a6e0;
+    --links-color-hover: #00aeff;
+    --text-color: rgb(210, 222, 233);
     --button-background-color: #064663;
     --button-background-color-hover: #0c5475;
     --input-button-height: 40px;
@@ -14,6 +16,7 @@
     --button-font-size: 0.75rem;
     --delete-button-background-color: #552b3f;
     --delete-button-background-color-hover: #612d46;
+    --background-color-hover: #07233d;
 }
 
 * {
@@ -38,10 +41,54 @@ body {
     padding-top: 16px;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 header > h1 {
     font-weight: 200;
     font-size: 3rem;
+
+    padding-bottom: 32px;
 }
+
+header > p {
+    padding-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+a:any-link {
+    color: var(--links-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--links-color-hover);
+    text-decoration: underline;
+}
+
+td {
+    font-size: 0.9rem;
+    overflow: hidden;
+}
+
+caption {
+    margin: 8px;
+    font-size: 1.1rem;
+}
+
+.form-control > input:focus-visible,
+.form-control > select:focus-visible {
+    border: 1px solid var(--input-focus-color);
+    outline: none;
+}
+
+thead {
+    margin-top: 16px;
+}
+
 
 /* :.:.:.:.:.::.:.:.:.:.::.:.:.:.:.::.:.:.:.:.::.:.:.:.:.::.:.:.:.:.:.: */
 /* "`-._,-'"`-._,-'"`-._,-'"` DESKTOP LAYOUT -'"`-._,-'"`-._,-'"`-._,-' */
@@ -59,10 +106,13 @@ header > h1 {
         display: flex;
         flex-direction: column;
         align-items: center;
+        
     }
 
     .new-book-container {
         width: 100%;
+        padding-bottom: 16px;
+        padding-top: 16px;
     }
 
     #form-1 {
@@ -92,6 +142,8 @@ header > h1 {
 
     .form-control > input {
         width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     .form-control > label {
@@ -101,11 +153,6 @@ header > h1 {
 
     .form-control > select {
         width: 100%;
-    }
-
-    .form-control > select:focus-visible {
-        border: 1px solid var(--button-background-color);
-        outline: none;
     }
 
     #btn-newbook {
@@ -132,13 +179,12 @@ header > h1 {
     #book-table {
         display: flex;
         flex-direction: column;
-        border: 1px solid var(--table-background-color);
+        margin-bottom: 48px;
     }
 
     td {
         flex: 1;
-        display: flex;
-        
+        display: flex; 
     }
 
     tr {
@@ -148,9 +194,32 @@ header > h1 {
         padding-right: 16px;
         padding-left: 16px;
         gap: 16px;
+        border: 1px solid var(--table-background-color);
     }
 
-    td:nth-child(3),
+    .table-header-row {
+        display: flex;
+        height: 32px;
+        padding-right: 16px;
+        padding-left: 16px;
+        gap: 16px;
+        border: none;
+        background-color: none;
+    }
+
+    th {
+        flex: 1;
+        text-align: left;
+
+        letter-spacing: 0.1rem;
+    }
+
+    th:nth-child(3) {
+        text-align: left;
+        
+    }
+
+    
     td:nth-child(4) {
         justify-content: flex-end;
     }
@@ -173,12 +242,31 @@ header > h1 {
 
     .btn-delete:hover {
         background-color: var(--delete-button-background-color-hover);
-
     }
 
-    tr:nth-child(even) {
+    tr:nth-child(odd) {
         background-color: var(--table-background-color);
     }
+
+    tr:nth-child(1) {
+        background-color: var(--background-color);
+    }
+
+    .read-true {
+        background-color: var(--button-background-color);
+    }
+    
+    .read-true:hover {
+        background-color: var(--button-background-color-hover);
+    }
+    .read-false {
+        background-color: var(--background-color);
+    }
+
+    .read-false:hover {
+        background-color: var(--background-color-hover);
+    }
+
 }
 
 
