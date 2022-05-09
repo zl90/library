@@ -1,53 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="javascript.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>My library</h1>
-        <p>Keep track of your books.</p>
-        <p>View the <a href="https://github.com/zl90/library" target="blank">github repo</a>.</p>
+      <h1>My library</h1>
+      <p>Keep track of your books.</p>
+      <p>
+        View the
+        <a href="https://github.com/zl90/library" target="blank">github repo</a
+        >.
+      </p>
     </header>
     <div class="new-book-container">
-        <form id="form-1" action="#">
-            <div class="form-control">
-                <label for="book-title">Book</label>
-                <input type="text" id="book-title" maxlength="50" name="book-title" required>
-            </div>
-            <div class="form-control">
-                <label for="book-author">Author</label>
-                <input type="text" id="book-author" maxlength="50" name="book-author" required>
-            </div>
-            <div class="form-control" id="select-control">
-                <label for="book-read">Status</label>
-                <select name="read" id="book-read">
-                    <option value="true" selected>Read</option>
-                    <option value="false">Not read</option>
-                </select>
-            </div>
-            <div class="form-control" id="btn-control">
-                <button form="form-1" type="button" id="btn-newbook">SUBMIT</button>
-            </div>
-        </form>
+      <form id="form-1" action="#" novalidate>
+        <div class="form-control">
+          <label for="book-title">Book</label>
+          <input
+            type="text"
+            id="book-title"
+            maxlength="50"
+            name="book-title"
+            required
+          />
+        </div>
+        <div class="form-control">
+          <label for="book-author">Author</label>
+          <input
+            type="text"
+            id="book-author"
+            maxlength="50"
+            name="book-author"
+            required
+          />
+        </div>
+        <div class="form-control" id="select-control">
+          <label for="book-read">Status</label>
+          <select name="read" id="book-read">
+            <option value="true" selected>Read</option>
+            <option value="false">Not read</option>
+          </select>
+        </div>
+        <div class="form-control" id="btn-control">
+          <button form="form-1" type="button" id="btn-newbook">SUBMIT</button>
+        </div>
+      </form>
     </div>
     <div class="table-container">
-        <table id="book-table">
-            
-            <thead>
-                <tr class="table-header-row">
-                    <th>Book</th>
-                    <th>Author</th>
-                    <th>Status</th>
-                    <th> </th>
-                </tr>
-            </thead>
-        </table>
+      <table id="book-table">
+        <thead>
+          <tr class="table-header-row">
+            <th>Book</th>
+            <th>Author</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+      </table>
     </div>
-</body>
+  </body>
 </html>
