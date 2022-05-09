@@ -4,36 +4,76 @@
 const btnNewBook = document.querySelector("#btn-newbook");
 const bookTable = document.querySelector("#book-table");
 const form1 = document.querySelector("#form-1");
+const title = document.querySelector("#book-title");
+const author = document.querySelector("#book-author");
+const read = document.querySelector("#book-read");
 
 // Library objects
 const myLibrary = [];
 
 // Constructor
-function Book(title, author, read) {
-  this.title = title;
-  this.author = author;
-  this.read = read;
+function Book(bookTitle, bookAuthor, bookRead) {
+  this.title = bookTitle;
+  this.author = bookAuthor;
+  this.read = bookRead;
   this.id = myLibrary.length;
 }
 
+// Form Constraints
+title.maxLength = 50;
+author.maxLength = 50;
+
+// Events
+title.addEventListener("input", () => validateTitle);
+author.addEventListener("input", () => validateAuthor);
+
+const validateTitle = () => {
+  // Form validation using the Constraint Validation API
+  if (title.validity.tooLong) {
+    title.setCustomValidity(
+      `Title too long. Max ${title.maxLength} characters. You've entered ${title.value.length}.`
+    );
+    title.reportValidity();
+  } else {
+    title.setCustomValidity("");
+  }
+};
+
+const validateAuthor = () => {
+  // Form validation using the Constraint Validation API
+  if (author.validity.tooLong) {
+    author.setCustomValidity(
+      `Author name too long. Max ${author.maxLength} characters. You've entered ${author.value.length}.`
+    );
+    author.reportValidity();
+  } else {
+    author.setCustomValidity("");
+  }
+};
+
 // Write a function that loops through the array and displays each book on the page.
 function addBookToLibrary() {
-  // Check the form for values
-  const title = document.querySelector("#book-title");
-  const author = document.querySelector("#book-author");
-  const e = document.querySelector("#book-read");
-  const readValue = e.options[e.selectedIndex].value;
+  // Form validation using the Constraint Validation API
+  const readValue = read.options[read.selectedIndex].value;
 
-  if (title.value !== "" && author.value !== "") {
+  if (!title.validity.valueMissing && !author.validity.valueMissing) {
     const newBook = new Book(title.value, author.value, readValue);
-
     myLibrary.unshift(newBook);
-
     form1.reset();
-
     updateTable();
   } else {
-    alert("Please enter a Book Title and an Author Name");
+    if (author.validity.valueMissing) {
+      author.setCustomValidity("Please enter an author name!");
+      author.reportValidity();
+    } else {
+      author.setCustomValidity("");
+    }
+    if (title.validity.valueMissing) {
+      title.setCustomValidity("Please enter a book title!");
+      title.reportValidity();
+    } else {
+      title.setCustomValidity("");
+    }
   }
 }
 
